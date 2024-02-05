@@ -10,6 +10,8 @@
 ### convert to ONNX 
 ```bash
 $ yolo export model=yolov8s.pt format=onnx dynamic=true
+# change input tensor name from 'images' -> 'input'
+$ python chg-input-name.py 
 ```
 
 ### convert to TRT engine
