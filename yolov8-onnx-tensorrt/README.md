@@ -21,3 +21,18 @@ $ trtexec --explicitBatch --onnx='./yolov8s-dy-input.onnx' --saveEngine=test.eng
 ```bash
 $ trtexec --loadEngine=test.engine --batch=1
 ```
+
+### benchmarks
+> rtx 3060, ubuntu 20.04, cuda toolkit 11.6.2, tensorrt 8.6, python 3.10  
+
+| cmd  | inference time  |
+|---|---|
+| yolo predict model=yolov8s.pt source=images  | 6.2ms  |
+| yolo predict model=yolov8s.pt source=images half=true | 15.1 ms |
+| yolo predict model=yolov8s.pt source=images int8=true | 6.2 ms  |
+| trtexec --explicitBatch --onnx=./yolov8s-dy-input.onnx --saveEngine=test.engine --shapes=input:8x3x320x320 | 9.3 ms  |
+| trtexec --explicitBatch --onnx=./yolov8s-dy-input.onnx --saveEngine=test.engine --shapes=input:8x3x320x320 –fp16 | 3.9 ms  |
+| trtexec --explicitBatch --onnx=./yolov8s-dy-input.onnx --saveEngine=test.engine --shapes=input:8x3x320x320 --int8 | 2.8 ms  |
+
+### issue
+https://github.com/ultralytics/ultralytics/issues/1719
