@@ -8,7 +8,7 @@ plz refer to my test env.
 > yolov8: 8.1
 
 ### Installation
-> Is't better to install yolv8 from source code since the **Compatibility Issues** in tensorrt and pytorch 
+> It's better to install yolv8 from source code since the **Compatibility Issues** in tensorrt and pytorch 
 <details close>
 <summary>click to expand</summary>
 
