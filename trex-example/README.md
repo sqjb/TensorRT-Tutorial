@@ -19,7 +19,7 @@ $ sudo apt-get --yes install graphviz
 
 #### export onnx
 ```bash
-(yolov8-tensorrt) yzrt@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ yolo export model=yolov8s.pt format=onnx
+(yolov8-tensorrt) **@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ yolo export model=yolov8s.pt format=onnx
 Ultralytics YOLOv8.1.9 🚀 Python-3.10.13 torch-1.13.1 CPU (AMD Ryzen 9 5950X 16-Core Processor)
 YOLOv8s summary (fused): 168 layers, 11156544 parameters, 0 gradients, 28.6 GFLOPs
 
@@ -29,7 +29,7 @@ ONNX: starting export with onnx 1.12.0 opset 16...
 ONNX: export success ✅ 0.5s, saved as 'yolov8s.onnx' (42.8 MB)
 
 Export complete (2.0s)
-Results saved to /home/yzrt/workspace/yolov8-tensorrt-comp/trex-example
+Results saved to /home/**/workspace/yolov8-tensorrt-comp/trex-example
 Predict:         yolo predict task=detect model=yolov8s.onnx imgsz=640  
 Validate:        yolo val task=detect model=yolov8s.onnx imgsz=640 data=coco.yaml  
 Visualize:       https://netron.app
@@ -38,7 +38,7 @@ Visualize:       https://netron.app
 ```
 #### convert to engine and show
 ```bash
-(yolov8-tensorrt) yzrt@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ python ../TensorRT/tools/experimental/trt-engine-explorer/utils/process_engine.py yolov8s.onnx output
+(yolov8-tensorrt) **@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ python ../TensorRT/tools/experimental/trt-engine-explorer/utils/process_engine.py yolov8s.onnx output
 Building the engine:
 trtexec --verbose --nvtxMode=verbose --buildOnly --workspace=8192 --onnx=yolov8s.onnx --saveEngine=output/yolov8s.onnx.engine --timingCacheFile=./timing.cache
 
@@ -57,11 +57,11 @@ Successfully profiled the engine.
 
 Profiling metadata: generated output file output/yolov8s.onnx.engine.profile.metadata.json
 Generating graph diagram: output/yolov8s.onnx.engine.graph.json
-/home/yzrt/workspace/yolov8-tensorrt-comp/TensorRT/tools/experimental/trt-engine-explorer/trex/engine_plan.py:90: UserWarning:
+/home/**/workspace/yolov8-tensorrt-comp/TensorRT/tools/experimental/trt-engine-explorer/trex/engine_plan.py:90: UserWarning:
 
 Profiling data was not provided.
 
-Created file:///home/yzrt/workspace/yolov8-tensorrt-comp/trex-example/output/yolov8s.onnx.engine.graph.json.svg
+Created file:///home/**/workspace/yolov8-tensorrt-comp/trex-example/output/yolov8s.onnx.engine.graph.json.svg
 Artifcats directory: output
 
 ```
@@ -70,7 +70,7 @@ Artifcats directory: output
 
 ### test
 ```bash
-(yolov8-tensorrt) yzrt@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ trtexec --loadEngine=output/yolov8s.onnx.engine
+(yolov8-tensorrt) **@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ trtexec --loadEngine=output/yolov8s.onnx.engine
 &&&& RUNNING TensorRT.trtexec [TensorRT v8601] # trtexec --loadEngine=output/yolov8s.onnx.engine
 [02/06/2024-17:24:15] [I] === Model Options ===
 [02/06/2024-17:24:15] [I] Format: *
@@ -106,7 +106,7 @@ Artifcats directory: output
 
 #### export onnx
 ```bash
-(yolov8-tensorrt) yzrt@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ yolo export model=yolov8s.pt format=onnx dynamic=true
+(yolov8-tensorrt) **@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ yolo export model=yolov8s.pt format=onnx dynamic=true
 Ultralytics YOLOv8.1.9 🚀 Python-3.10.13 torch-1.13.1 CPU (AMD Ryzen 9 5950X 16-Core Processor)
 YOLOv8s summary (fused): 168 layers, 11156544 parameters, 0 gradients, 28.6 GFLOPs
 
@@ -116,7 +116,7 @@ ONNX: starting export with onnx 1.12.0 opset 16...
 ONNX: export success ✅ 0.6s, saved as 'yolov8s.onnx' (42.6 MB)
 
 Export complete (2.1s)
-Results saved to /home/yzrt/workspace/yolov8-tensorrt-comp/trex-example
+Results saved to /home/**/workspace/yolov8-tensorrt-comp/trex-example
 Predict:         yolo predict task=detect model=yolov8s.onnx imgsz=640  
 Validate:        yolo val task=detect model=yolov8s.onnx imgsz=640 data=coco.yaml  
 Visualize:       https://netron.app
@@ -126,7 +126,7 @@ Visualize:       https://netron.app
 ```
 #### convert to engine and show
 ```bash
-(yolov8-tensorrt) yzrt@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ python ../TensorRT/tools/experimental/trt-engine-explorer/utils/process_engine.py yolov8s.onnx output1 minShapes=images:1x3x640x640 optShapes=images:4x3x640x640 maxShapes=images:8x3x640x640
+(yolov8-tensorrt) **@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ python ../TensorRT/tools/experimental/trt-engine-explorer/utils/process_engine.py yolov8s.onnx output1 minShapes=images:1x3x640x640 optShapes=images:4x3x640x640 maxShapes=images:8x3x640x640
 Building the engine:
 trtexec --verbose --nvtxMode=verbose --buildOnly --workspace=8192 --onnx=yolov8s.onnx --saveEngine=output1/yolov8s.onnx.engine --timingCacheFile=./timing.cache --minShapes=images:1x3x640x640 --optShapes=images:4x3x640x640 --maxShapes=images:8x3x640x640
 
@@ -145,11 +145,11 @@ Successfully profiled the engine.
 
 Profiling metadata: generated output file output1/yolov8s.onnx.engine.profile.metadata.json
 Generating graph diagram: output1/yolov8s.onnx.engine.graph.json
-/home/yzrt/workspace/yolov8-tensorrt-comp/TensorRT/tools/experimental/trt-engine-explorer/trex/engine_plan.py:90: UserWarning:
+/home/**/workspace/yolov8-tensorrt-comp/TensorRT/tools/experimental/trt-engine-explorer/trex/engine_plan.py:90: UserWarning:
 
 Profiling data was not provided.
 
-Created file:///home/yzrt/workspace/yolov8-tensorrt-comp/trex-example/output1/yolov8s.onnx.engine.graph.json.svg
+Created file:///home/**/workspace/yolov8-tensorrt-comp/trex-example/output1/yolov8s.onnx.engine.graph.json.svg
 Artifcats directory: output1
 
 
@@ -159,7 +159,7 @@ Artifcats directory: output1
 
 ### test
 ```bash
-(yolov8-tensorrt) yzrt@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ trtexec --loadEngine=output1/yolov8s.onnx.engine --shapes=images:2x3x640x640
+(yolov8-tensorrt) **@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ trtexec --loadEngine=output1/yolov8s.onnx.engine --shapes=images:2x3x640x640
 &&&& RUNNING TensorRT.trtexec [TensorRT v8601] # trtexec --loadEngine=output1/yolov8s.onnx.engine --shapes=images:2x3x640x640
 [02/06/2024-17:32:05] [I] === Model Options ===
 [02/06/2024-17:32:05] [I] Format: *
@@ -189,7 +189,7 @@ Artifcats directory: output1
 
 ### wrong shape 
 ```bash
-(yolov8-tensorrt) yzrt@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ trtexec --loadEngine=output1/yolov8s.onnx.engine --shapes=images:2x3x320x640 
+(yolov8-tensorrt) **@MS7c90:~/workspace/yolov8-tensorrt-comp/trex-example$ trtexec --loadEngine=output1/yolov8s.onnx.engine --shapes=images:2x3x320x640 
 &&&& RUNNING TensorRT.trtexec [TensorRT v8601] # trtexec --loadEngine=output1/yolov8s.onnx.engine --shapes=images:2x3x320x640
 [02/06/2024-17:33:19] [I] === Model Options ===
 [02/06/2024-17:33:19] [I] Format: *
